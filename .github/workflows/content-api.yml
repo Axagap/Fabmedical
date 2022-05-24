@@ -43,15 +43,15 @@ jobs:
         repository: ${{ env.imageRepository }}
         tags: ${{ env.tag }},latest
 
-      - uses: Azure/aks-set-context@v1
-        with:
+    - uses: Azure/aks-set-context@v1
+      with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: '${{ env.clusterName }}'
           resource-group: '${{ env.resourceGroupName }}'
           
-      - name: Deploy to AKS
-        uses: azure/k8s-deploy@v1
-        with:
+    - name: Deploy to AKS
+      uses: azure/k8s-deploy@v1
+      with:
           manifests: |
             api.deployment.yml
             api.service.yml
