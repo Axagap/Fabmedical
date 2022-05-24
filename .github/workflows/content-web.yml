@@ -58,7 +58,6 @@ jobs:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
         cluster-name: '${{ env.clusterName }}'
         resource-group: '${{ env.resourceGroupName }}'
-
     - name: Create ACR credentials secret
       uses: azure/k8s-create-secret@v1
       with:
